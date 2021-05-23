@@ -3,11 +3,9 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 const String initialPhoto =
     'https://images.unsplash.com/photo-1506372023823-741c83b836fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1080&q=80';
-final String apiKey = DotEnv.env['UNSPLASH_API_KEY'];
 
 final colorProvider = StateProvider.autoDispose<Color>((ref) => Colors.white);
 final photoProvider = StateProvider.autoDispose<String>((ref) => initialPhoto);
@@ -22,7 +20,7 @@ class Background extends ConsumerWidget {
     Future<void> getPhoto(String query) async {
       final Dio dio = Dio();
       final Response response = await dio.get(
-          'https://api.unsplash.com/photos/random?client_id=$apiKey&query=$query&orientation=landscape');
+          'https://api.unsplash.com/photos/random?client_id=IBqP1F6EqiNJZlf1Op_6LeUrIo2TVbSQ-6gRHSBdgRg&query=$query&orientation=landscape');
       final Map<String, dynamic> data = response.statusCode == 200
           ? response.data
           : throw Exception('Something went wrong');
