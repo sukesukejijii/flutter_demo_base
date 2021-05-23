@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final mediaProvider = Provider.family.autoDispose<MediaQueryData, BuildContext>(
-    (ref, context) => MediaQuery.of(context));
-
-class Adaptive extends ConsumerWidget {
+class Adaptive extends StatelessWidget {
   const Adaptive();
 
   @override
-  Widget build(BuildContext context, watch) {
-    final media = watch(mediaProvider(context));
+  Widget build(BuildContext context) {
+    final media = MediaQuery.of(context);
 
     return Center(
       child: Container(

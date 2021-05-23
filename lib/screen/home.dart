@@ -35,7 +35,7 @@ const projects = {
   '7.Rain Animation': Rain(),
   '8.Background Changer': Background(),
   '9.Carousel Photo': Carousel(),
-  // TODO: 'Movie': Movie(), staggered, search
+  // TODO: 'Movie': Movie(), staggered, incremental search
   // TODO: 'Audio': Audio(),
 };
 

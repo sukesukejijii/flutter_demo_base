@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// TODO: make it searchable on mobile
+
 final colorProvider = StateProvider.autoDispose<Color>((ref) => Colors.white);
 final photoProvider = StateProvider.autoDispose<String>((ref) =>
     'https://images.unsplash.com/photo-1506372023823-741c83b836fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1080&q=80');

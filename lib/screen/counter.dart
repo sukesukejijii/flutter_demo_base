@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// TODO: create button, maybe particles
+
 final fontSize = StateProvider.autoDispose<double>((ref) => 24);
 final fontOpacity = StateProvider.autoDispose<double>((ref) => 1.0);
 final fontColor = StateProvider.autoDispose<int>((ref) => 0);
