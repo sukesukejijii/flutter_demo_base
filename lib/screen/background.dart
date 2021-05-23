@@ -11,18 +11,18 @@ final String apiKey = DotEnv.env['UNSPLASH_API_KEY'];
 
 final colorProvider = StateProvider.autoDispose<Color>((ref) => Colors.white);
 final photoProvider = StateProvider.autoDispose<String>((ref) => initialPhoto);
-final queryProvider = StateProvider.autoDispose<String>((ref) => '');
 
 class Background extends ConsumerWidget {
   const Background();
 
   @override
   Widget build(BuildContext context, watch) {
-    Future<void> getPhoto() async {
-      final String input = context.read(queryProvider).state;
+    final controller = TextEditingController();
+
+    Future<void> getPhoto(String query) async {
       final Dio dio = Dio();
       final Response response = await dio.get(
-          'https://api.unsplash.com/photos/random?client_id=$apiKey&query=$input&orientation=landscape');
+          'https://api.unsplash.com/photos/random?client_id=$apiKey&query=$query&orientation=landscape');
       final Map<String, dynamic> data = response.statusCode == 200
           ? response.data
           : throw Exception('Something went wrong');
@@ -62,6 +62,7 @@ class Background extends ConsumerWidget {
             Container(
               width: 400,
               child: TextField(
+                controller: controller,
                 style: TextStyle(
                   color: Colors.pink.withOpacity(0.9),
                   fontSize: 24,
@@ -77,11 +78,21 @@ class Background extends ConsumerWidget {
                   hintText: 'search',
                   border: InputBorder.none,
                 ),
-                onSubmitted: (value) async {
-                  context.read(queryProvider).state = value;
-                  await getPhoto();
+                onSubmitted: (text) async {
+                  await getPhoto(text);
                 },
               ),
+            ),
+            SizedBox(height: 18),
+            ElevatedButton(
+              child: Text('Change Photo'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black.withOpacity(0.5),
+              ),
+              onPressed: () async {
+                final text = controller.text;
+                await getPhoto(text);
+              },
             ),
             SizedBox(height: 18),
             ElevatedButton(
