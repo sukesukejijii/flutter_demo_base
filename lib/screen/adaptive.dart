@@ -24,7 +24,7 @@ class Adaptive extends StatelessWidget {
                 Text('Window height:'),
                 Spacer(),
                 Text(
-                  '${media.size.height.toString()}',
+                  '${media.size.height.toStringAsFixed(0)}',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class Adaptive extends StatelessWidget {
                 Text('Window width:'),
                 Spacer(),
                 Text(
-                  '${media.size.width.toString()}',
+                  '${media.size.width.toStringAsFixed(0)}',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
