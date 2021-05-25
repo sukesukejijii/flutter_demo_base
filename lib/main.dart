@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'screen/home.dart';
 
+// TODO: make it sound null safety
+
 void main() {
   runApp(ProviderScope(child: App()));
 }
@@ -17,8 +19,6 @@ class App extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.pink,
-        primaryColor: Colors.pink,
-        accentColor: Colors.indigo,
         brightness: watch(isDark).state ? Brightness.dark : Brightness.light,
       ),
       home: Home(),

@@ -2,8 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// TODO: user context refresh
-
 class Quote extends StateNotifier<String> {
   Quote() : super('');
 
@@ -66,7 +64,7 @@ class WriteText extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Text(
                     output,
-                    style: Theme.of(context).textTheme.headline2,
+                    style: TextStyle(fontSize: 60, color: Colors.pink),
                   ),
                 ),
                 Spacer(flex: 2),
@@ -85,7 +83,10 @@ class WriteText extends StatelessWidget {
                 children: [
                   const LinearProgressIndicator(),
                   const SizedBox(height: 30),
-                  const Text('Fetching random quote from breakingbadapi.com'),
+                  const Text(
+                    'Fetching randomly from BreakingBadApi.com',
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ],
               );
             },

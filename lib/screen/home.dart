@@ -97,7 +97,7 @@ class CustomDrawer extends StatelessWidget {
             Text(
               'Web Apps, etc',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.pink),
             ),
             SizedBox(height: 30),
             for (var service in urls.entries)
@@ -114,7 +114,7 @@ class CustomDrawer extends StatelessWidget {
             Text(
               'Small demos',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.pink),
             ),
             SizedBox(height: 30),
             for (var project in projects.entries)

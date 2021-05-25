@@ -24,6 +24,8 @@ class DarkMode extends ConsumerWidget {
             autofocus: true,
             title: Text('Apply Dark Mode to Entire App'),
             selected: true,
+            controlAffinity: ListTileControlAffinity.leading,
+            activeColor: Colors.pink,
           ),
         ),
       ),
