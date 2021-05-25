@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// TODO: create button, maybe particles
+// TODO: maybe particles
 
 final fontSize = StateProvider.autoDispose<double>((ref) => 24);
 final fontOpacity = StateProvider.autoDispose<double>((ref) => 1.0);
@@ -54,21 +54,27 @@ class Counter extends ConsumerWidget {
               },
             ),
           ),
+          Align(
+            alignment: Alignment(0, 0.5),
+            child: IconButton(
+              tooltip: 'Press Me',
+              icon: Icon(Icons.arrow_upward_rounded),
+              color: color,
+              iconSize: 60,
+              onPressed: () {
+                final random = Random();
+                final randomFontSize = 45 + random.nextInt(90);
+                final radomOpacity = 0.6 * random.nextDouble();
+                final randomColor = random.nextInt(5);
+                context.read(fontSize).state += randomFontSize;
+                context.read(fontOpacity).state =
+                    (context.read(fontOpacity).state - radomOpacity)
+                        .clamp(0.0, 1.0);
+                context.read(fontColor).state = randomColor;
+              },
+            ),
+          ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_upward_rounded),
-        backgroundColor: color,
-        onPressed: () {
-          final random = Random();
-          final randomFontSize = 45 + random.nextInt(90);
-          final radomOpacity = 0.7 * random.nextDouble();
-          final randomColor = random.nextInt(5);
-          context.read(fontSize).state += randomFontSize;
-          context.read(fontOpacity).state =
-              (context.read(fontOpacity).state - radomOpacity).clamp(0.0, 1.0);
-          context.read(fontColor).state = randomColor;
-        },
       ),
     );
   }
