@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:one_hour/icons.dart';
+import 'package:flutter_demo_base/icons.dart';
 
 final rainProvider =
     StateProvider.autoDispose<List<SlideTransition>>((ref) => []);
